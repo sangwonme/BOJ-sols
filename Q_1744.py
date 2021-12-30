@@ -1,12 +1,14 @@
 # input
 n = int(input())
-pos, neg, zero = [], [], False
+pos, neg, zero, ones = [], [], False, 0
 for i in range(n):
   tmp = int(input())
-  if tmp > 0:
+  if tmp > 1:
     pos.append(tmp)
   elif tmp < 0:
     neg.append(tmp)
+  elif tmp == 1:
+    ones += 1
   else:
     zero = True
 
@@ -19,7 +21,7 @@ if zero and len(neg) % 2 == 1:
   neg.pop(-1)
 
 # get sum
-result = 0
+result = ones
 for i in range(len(pos)):
   if i == len(pos) - 1 and i % 2 == 0:
     result += pos[i]
